@@ -314,4 +314,101 @@ header .container .banner .banner_img {
   margin: 3rem 0;
 }
 
+.products {
+  padding: 6rem 0;
+}
+.products .container h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #626a6a;
+  margin-bottom: 3rem;
+}
+@media (min-width: 600px) {
+  .products .container .product_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .products .container .product_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .products .container .product_list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.products .container .product_list .product_item {
+  margin: 1rem;
+}
+.products .container .product_list .product_item .product_img {
+  background-color: #f8f9fd;
+  padding: 3rem 0;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+.products .container .product_list .product_item .product_img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+}
+.products .container .product_list .product_item .product_img:hover img {
+  opacity: 0.8;
+}
+.products .container .product_list .product_item .product_img .add_to_cart_btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  padding: 0.75rem 1.2rem;
+  font-size: 1.05rem;
+  background-color: #33383c;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.products .container .product_list .product_item .product_img .add_to_cart_btn:hover {
+  background-color: #23272a;
+  color: #e99c2f;
+}
+.products .container .product_list .product_item .product_img .add_to_cart_btn i {
+  margin-right: 0.4rem;
+}
+.products .container .product_list .product_item .product_img:hover .add_to_cart_btn {
+  opacity: 1;
+}
+.products .container .product_list .product_item .product_content {
+  padding: 1.6rem 0;
+  text-align: center;
+}
+.products .container .product_list .product_item .product_content .product_name {
+  font-size: 1.3rem;
+  color: #33383c;
+}
+.products .container .product_list .product_item .product_content .product_category {
+  margin: 0.8rem 0;
+  display: inline-block;
+  font-weight: 500;
+  background-color: #e99c2f;
+  color: #fff;
+  padding: 0.05rem 1.5rem;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+.products .container .product_list .product_item .product_content .product_price {
+  font-size: 1.15rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
 /*# sourceMappingURL=main.css.map */
