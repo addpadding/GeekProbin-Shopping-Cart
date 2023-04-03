@@ -87,6 +87,10 @@ header .container .navbar .navbar_collapse {
   width: 100%;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
+  height: 0;
+}
+header .container .navbar .navbar_collapse.show_navbar {
+  height: 204px;
 }
 header .container .navbar .navbar_collapse ul {
   list-style: none;
@@ -137,6 +141,7 @@ header .container .navbar .cart .cart_container {
   left: 0;
   right: 0;
   box-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.21);
+  display: none;
 }
 header .container .navbar .cart .cart_container.show_cart_container {
   display: block;
@@ -161,9 +166,41 @@ header .container .navbar .cart .cart_container .cart_list .cart_item {
 header .container .navbar .cart .cart_container .cart_list .cart_item:last-child {
   border-bottom: none;
 }
-
-.show_navbar {
-  height: 204px;
+header .container .navbar .cart .cart_container .cart_list .cart_item img {
+  width: 80px;
+}
+header .container .navbar .cart .cart_container .cart_list .cart_item .cart_item_info {
+  text-align: center;
+}
+header .container .navbar .cart .cart_container .cart_list .cart_item .cart_item_info span {
+  display: block;
+}
+header .container .navbar .cart .cart_container .cart_list .cart_item .cart_item_del_btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0.05rem 0.45rem;
+  font-size: 1.4rem;
+  background-color: #e99c2f;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+header .container .navbar .cart .cart_container .cart_total {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #e99c2f;
+  color: #fff;
+}
+header .container .navbar .cart .cart_container .cart_total h3 {
+  margin-right: 0.2rem;
+  font-size: 1.3rem;
+}
+header .container .navbar .cart .cart_container .cart_total .cart_total_value {
+  font-size: 1.3em;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=main.css.map */
