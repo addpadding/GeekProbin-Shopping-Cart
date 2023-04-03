@@ -291,10 +291,6 @@ header .container {
     width: 180px;
     margin: 0.6rem auto;
     transition: var(--trans);
-    -webkit-transition: var(--trans);
-    -moz-transition: var(--trans);
-    -ms-transition: var(--trans);
-    -o-transition: var(--trans);
 }
 
 .btns .btn:last-child {
@@ -458,10 +454,6 @@ footer>.container {
     height: 30px;
     font-size: 1.25rem;
     transition: var(--trans);
-    -webkit-transition: var(--trans);
-    -moz-transition: var(--trans);
-    -ms-transition: var(--trans);
-    -o-transition: var(--trans);
 }
 
 .social-icons a:hover {

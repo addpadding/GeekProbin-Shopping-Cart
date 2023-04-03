@@ -32,13 +32,6 @@ a {
   padding: 0 1.5rem;
 }
 
-.text {
-  font-size: 1.1rem;
-  margin: 1.2em 0;
-  line-height: 1.7;
-  opacity: 0.7;
-}
-
 header {
   background-color: #f8f9fd;
 }
@@ -409,6 +402,86 @@ header .container .banner .banner_img {
   font-size: 1.15rem;
   font-weight: 500;
   opacity: 0.6;
+}
+
+footer {
+  background-color: #33383c;
+}
+footer .footer_banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/footer-banner.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 0;
+  color: #fff;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  footer .footer_banner {
+    text-align: left;
+  }
+}
+footer .footer_banner .container h2 {
+  font-size: 2.4rem;
+}
+footer .footer_banner .container .text {
+  font-size: 1.1rem;
+  margin: 1.2em 0;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+@media (min-width: 992px) {
+  footer .footer_banner .container .text {
+    width: 60%;
+  }
+}
+footer .footer_banner .container .btn {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid #e99c2f;
+  background-color: #e99c2f;
+  color: #fff;
+  padding: 0.95rem 0;
+  letter-spacing: 2px;
+  display: block;
+  width: 180px;
+  margin: 0.6rem auto;
+  margin-top: 2rem;
+  transition: all 0.5s ease-in-out;
+}
+footer .footer_banner .container .btn:hover {
+  background: #fff;
+  color: #e99c2f;
+  background: transparent;
+}
+@media (min-width: 992px) {
+  footer .footer_banner .container .btn {
+    margin-left: 0;
+  }
+}
+footer > .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer > .container .social_icons {
+  display: flex;
+  padding: 3rem 0;
+}
+footer > .container .social_icons a {
+  color: #626a6a;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.25rem;
+  transition: all 0.5s ease-in-out;
+}
+footer > .container .social_icons a:hover {
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

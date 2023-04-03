@@ -41,12 +41,6 @@ a {
     padding: 0 1.5rem;
 }
 
-.text {
-    font-size: 1.1rem;
-    margin: 1.2em 0;
-    line-height: 1.7;
-    opacity: 0.7;
-}
 
 // 001
 header {
@@ -514,5 +508,104 @@ header {
     }
 }
 
-// // 001
-// fff {}
+// 001
+footer {
+    background-color: $baltic_sea;
+
+    // 002
+    .footer_banner {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url(../images/footer-banner.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        padding: 3rem 0;
+        color: #fff;
+        text-align: center;
+
+        @media (min-width: 992px) {
+            text-align: left;
+        }
+
+        // 003
+        .container {
+
+            // 004
+            h2 {
+                font-size: 2.4rem;
+            }
+
+            // 004
+            .text {
+                font-size: 1.1rem;
+                margin: 1.2em 0;
+                line-height: 1.7;
+                opacity: 0.7;
+
+                @media (min-width: 992px) {
+                    width: 60%;
+                }
+            }
+
+            // 004
+            .btn {
+                font-size: 1rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                border: 1px solid $fire_bush;
+                background-color: $fire_bush;
+                color: #fff;
+                padding: 0.95rem 0;
+                letter-spacing: 2px;
+                display: block;
+                width: 180px;
+                margin: 0.6rem auto;
+                margin-top: 2rem;
+                transition: $transition;
+
+                &:hover {
+                    background: #fff;
+                    color: $fire_bush;
+                    background: transparent;
+                }
+
+                @media (min-width: 992px) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    // 002
+    &>.container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // 003
+        .social_icons {
+            display: flex;
+            padding: 3rem 0;
+
+            // 004
+            a {
+                color: $granite_gray;
+                margin: 0 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                font-size: 1.25rem;
+                transition: $transition;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+
+}
