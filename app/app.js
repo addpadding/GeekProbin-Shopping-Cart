@@ -111,5 +111,9 @@ function add_To_Cart_List(product) {
     cart_list.appendChild(cart_item)
 }
 
-function save_Product_In_Storage() { }
+function save_Product_In_Storage(item) {
+    let product_s = get_Product_From_Storage()
+}
+
+function get_Product_From_Storage() { }
 
