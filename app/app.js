@@ -16,6 +16,7 @@ var product_img_img = document.querySelector(".product_img img")
 
 let cart_item_ID = 1;
 
+// =============================
 event_Listeners()
 function event_Listeners() {
 
@@ -83,10 +84,32 @@ function get_Product_Info(product) {
         category: product.querySelector(".product_category").textContent,
         price: product.querySelector(".product_price").textContent,
     }
-    console.log(product_info)
     cart_item_ID++;
     add_To_Cart_List(product_info)
+    save_Product_In_Storage(product_info)
 }
 
-function add_To_Cart_List(product) { }
+function add_To_Cart_List(product) {
+    const cart_item = document.createElement("div")
+    cart_item.classList.add("cart_item")
+    cart_item.setAttribute("data-id", `${product.id}`)
+    cart_item.innerHTML = `
+
+        <img src="${product.imgSrc}" alt="">
+
+        <div class="cart_item_info">
+            <h3 class="cart_item_name">${product.name}</h3>
+            <span class="cart_item_category">${product.category}</span>
+            <span class="cart_item_price">${product.price}</span>
+        </div>
+
+        <button class="cart_item_del_btn">
+            <i class="fas fa-times"></i>
+        </button>
+
+    `
+    cart_list.appendChild(cart_item)
+}
+
+function save_Product_In_Storage() { }
 
