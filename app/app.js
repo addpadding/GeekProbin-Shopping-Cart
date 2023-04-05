@@ -1,48 +1,46 @@
 console.log("app");
 // =============================
 
-var navbar_toggler = document.querySelector(".navbar_toggler")
-var navbar_collapse = document.querySelector(".navbar_collapse")
-var cart_btn = document.querySelector(".cart_btn")
+var navbar_toggler = document.querySelector(".navbar_toggler");
+var navbar_collapse = document.querySelector(".navbar_collapse");
+var cart_btn = document.querySelector(".cart_btn");
 
-const cart_container = document.querySelector(".cart_container")
-const product_list = document.querySelector(".product_list")
+const cart_container = document.querySelector(".cart_container");
+const product_list = document.querySelector(".product_list");
 
-const cart_list = document.querySelector(".cart_list")
-const cart_total_value = document.querySelector(".cart_total_value")
-const cart_count_info = document.querySelector(".cart_count_info")
+const cart_list = document.querySelector(".cart_list");
+const cart_total_value = document.querySelector(".cart_total_value");
+const cart_count_info = document.querySelector(".cart_count_info");
 
-var product_img_img = document.querySelector(".product_img img")
+var product_img_img = document.querySelector(".product_img img");
 
 let cart_item_ID = 1;
 
 // =============================
-event_Listeners()
+event_Listeners();
 function event_Listeners() {
-
     window.addEventListener("DOMContentLoaded", function () {
-        load_json()
-    })
+        load_json();
+    });
 
     navbar_toggler.addEventListener("click", function () {
-        navbar_collapse.classList.toggle("show_navbar")
-    })
+        navbar_collapse.classList.toggle("show_navbar");
+    });
 
     cart_btn.addEventListener("click", function () {
-        cart_container.classList.toggle("show_cart_container")
-    })
+        cart_container.classList.toggle("show_cart_container");
+    });
 
-    product_list.addEventListener("click", purchase_Product)
+    product_list.addEventListener("click", purchase_Product);
 }
 
 function load_json() {
     fetch("furniture.json")
-        .then(response => response.json())
-        .then(data => {
-            let html = ""
-            data.forEach(product => {
-                html +=
-                    `
+        .then((response) => response.json())
+        .then((data) => {
+            let html = "";
+            data.forEach((product) => {
+                html += `
                 <div class="product_item">
                     <div class="product_img">
                         <img src="${product.imgSrc}" alt="product image">
@@ -58,21 +56,19 @@ function load_json() {
                         <p class="product_price">$${product.price}</p>
                     </div>
                 </div>
-                    `
-
+                    `;
             });
-            product_list.innerHTML = html
+            product_list.innerHTML = html;
         })
-        .catch(error => {
+        .catch((error) => {
             alert(`User live server or local server`);
-        })
+        });
 }
 
 function purchase_Product(e) {
-
     if (e.target.classList.contains("add_to_cart_btn")) {
         let product = e.target.parentElement.parentElement;
-        get_Product_Info(product)
+        get_Product_Info(product);
     }
 }
 
@@ -83,16 +79,16 @@ function get_Product_Info(product) {
         name: product.querySelector(".product_name").textContent,
         category: product.querySelector(".product_category").textContent,
         price: product.querySelector(".product_price").textContent,
-    }
+    };
     cart_item_ID++;
-    add_To_Cart_List(product_info)
-    save_Product_In_Storage(product_info)
+    add_To_Cart_List(product_info);
+    save_Product_In_Storage(product_info);
 }
 
 function add_To_Cart_List(product) {
-    const cart_item = document.createElement("div")
-    cart_item.classList.add("cart_item")
-    cart_item.setAttribute("data-id", `${product.id}`)
+    const cart_item = document.createElement("div");
+    cart_item.classList.add("cart_item");
+    cart_item.setAttribute("data-id", `${product.id}`);
     cart_item.innerHTML = `
 
         <img src="${product.imgSrc}" alt="">
@@ -107,13 +103,21 @@ function add_To_Cart_List(product) {
             <i class="fas fa-times"></i>
         </button>
 
-    `
-    cart_list.appendChild(cart_item)
+    `;
+    cart_list.appendChild(cart_item);
 }
 
 function save_Product_In_Storage(item) {
-    let product_s = get_Product_From_Storage()
+    let product_s = get_Product_From_Storage();
+    product_s.push(item)
+    localStorage.setItem("products_set", JSON.stringify(product_s))
 }
 
-function get_Product_From_Storage() { }
+function get_Product_From_Storage() {
+    return localStorage.getItem("products_set")
+        ? JSON.parse(localStorage.getItem("products_set"))
+        : [];
+}
 
+
+function loadCart() { }
