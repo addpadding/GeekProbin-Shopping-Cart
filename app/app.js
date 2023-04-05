@@ -12,6 +12,8 @@ const cart_list = document.querySelector(".cart_list")
 const cart_total_value = document.querySelector(".cart_total_value")
 const cart_count_info = document.querySelector(".cart_count_info")
 
+let cart_item_ID = 1;
+
 event_Listeners()
 function event_Listeners() {
 
@@ -27,6 +29,7 @@ function event_Listeners() {
         cart_container.classList.toggle("show_cart_container")
     })
 
+    product_list.addEventListener("click", purchase_Product)
 }
 
 function load_json() {
@@ -61,4 +64,15 @@ function load_json() {
             alert(`User live server or local server`);
         })
 }
+
+function purchase_Product(e) {
+
+    if (e.target.classList.contains("add_to_cart_btn")) {
+        let product = e.target.parentElement.parentElement;
+        get_Product_Info(product)
+    }
+
+}
+
+function get_Product_Info(product) { }
 
