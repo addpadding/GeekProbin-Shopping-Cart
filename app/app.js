@@ -4,8 +4,13 @@ console.log("app");
 var navbar_toggler = document.querySelector(".navbar_toggler")
 var navbar_collapse = document.querySelector(".navbar_collapse")
 var cart_btn = document.querySelector(".cart_btn")
+
 const cart_container = document.querySelector(".cart_container")
 const product_list = document.querySelector(".product_list")
+
+const cart_list = document.querySelector(".cart_list")
+const cart_total_value = document.querySelector(".cart_total_value")
+const cart_count_info = document.querySelector(".cart_count_info")
 
 event_Listeners()
 function event_Listeners() {
