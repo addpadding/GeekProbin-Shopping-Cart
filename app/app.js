@@ -33,13 +33,14 @@ function event_Listeners() {
     });
 
     product_list.addEventListener("click", purchase_Product);
+    cart_list.addEventListener("click", delete_Product);
 }
 
 function update_Cart_Info() {
     let car_info = find_Cart_Info();
 
-    cart_count_info.textContent = car_info.productCount
-    cart_total_value.textContent = car_info.total
+    cart_count_info.textContent = car_info.productCount;
+    cart_total_value.textContent = car_info.total;
 }
 
 function load_json() {
@@ -153,6 +154,27 @@ function find_Cart_Info() {
 
     return {
         total: total.toFixed(2),
-        productCount: product_s.length
+        productCount: product_s.length,
+    };
+}
+
+function delete_Product(e) {
+    let cart__item;
+
+    if (e.target.tagName === "BUTTON") {
+        cart__item = e.target.parentElement;
+        cart__item.remove();
+    } else if (e.target.tagName === "I") {
+        cart__item = e.target.parentElement.parentElement;
+        cart__item.remove();
     }
+
+    let product_s = get_Product_From_Storage();
+
+    let updated_Products = product_s.filter((product) => {
+        return product.id !== parseInt(cart__item.dataset.id);
+    });
+    localStorage.setItem("products_set", JSON.stringify(updated_Products));
+
+    update_Cart_Info();
 }
