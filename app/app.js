@@ -21,7 +21,7 @@ event_Listeners();
 function event_Listeners() {
     window.addEventListener("DOMContentLoaded", function () {
         load_json();
-        load_Cart()
+        load_Cart();
     });
 
     navbar_toggler.addEventListener("click", function () {
@@ -36,7 +36,10 @@ function event_Listeners() {
 }
 
 function update_Cart_Info() {
+    let car_info = find_Cart_Info();
 
+    cart_count_info.textContent = car_info.productCount
+    cart_total_value.textContent = car_info.total
 }
 
 function load_json() {
@@ -114,8 +117,10 @@ function add_To_Cart_List(product) {
 
 function save_Product_In_Storage(item) {
     let product_s = get_Product_From_Storage();
-    product_s.push(item)
-    localStorage.setItem("products_set", JSON.stringify(product_s))
+    product_s.push(item);
+    localStorage.setItem("products_set", JSON.stringify(product_s));
+
+    update_Cart_Info();
 }
 
 function get_Product_From_Storage() {
@@ -124,16 +129,30 @@ function get_Product_From_Storage() {
         : [];
 }
 
-
 function load_Cart() {
-    let product_s = get_Product_From_Storage()
+    let product_s = get_Product_From_Storage();
 
     if (product_s.length < 1) {
         cart_item_ID = 1;
     } else {
-        cart_item_ID = product_s[product_s.length - 1].id
+        cart_item_ID = product_s[product_s.length - 1].id;
         cart_item_ID++;
     }
-    console.log(cart_item_ID)
-    product_s.forEach((product) => add_To_Cart_List(product))
+    product_s.forEach((product) => add_To_Cart_List(product));
+
+    update_Cart_Info();
+}
+
+function find_Cart_Info() {
+    let product_s = get_Product_From_Storage();
+
+    let total = product_s.reduce((acc, product) => {
+        let price = parseFloat(product.price.substr(1));
+        return (acc += price);
+    }, 0);
+
+    return {
+        total: total.toFixed(2),
+        productCount: product_s.length
+    }
 }
