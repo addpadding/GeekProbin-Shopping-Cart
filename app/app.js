@@ -21,6 +21,7 @@ event_Listeners();
 function event_Listeners() {
     window.addEventListener("DOMContentLoaded", function () {
         load_json();
+        load_Cart()
     });
 
     navbar_toggler.addEventListener("click", function () {
@@ -32,6 +33,10 @@ function event_Listeners() {
     });
 
     product_list.addEventListener("click", purchase_Product);
+}
+
+function update_Cart_Info() {
+
 }
 
 function load_json() {
@@ -120,4 +125,15 @@ function get_Product_From_Storage() {
 }
 
 
-function loadCart() { }
+function load_Cart() {
+    let product_s = get_Product_From_Storage()
+
+    if (product_s.length < 1) {
+        cart_item_ID = 1;
+    } else {
+        cart_item_ID = product_s[product_s.length - 1].id
+        cart_item_ID++;
+    }
+    console.log(cart_item_ID)
+    product_s.forEach((product) => add_To_Cart_List(product))
+}
